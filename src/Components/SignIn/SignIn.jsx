@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import "./style.css"
 
 export default function SignIn() {
     const history = useHistory();
@@ -17,9 +18,11 @@ export default function SignIn() {
     <div className="card-body login-card-body">
     <p className="login-box-msg">Sign in to start your session</p>
 
-    <form onSubmit={handleSubmit}>
+
+
+    <form onSubmit={handleSubmit} className="needs-validation">
         <div className="input-group mb-3">
-        <input type="email" className="form-control" placeholder="Email"/>
+        <input type="email" className="form-control" placeholder="Email" />
         <div className="input-group-append">
             <div className="input-group-text">
             <span className="fas fa-envelope"></span>
@@ -27,7 +30,7 @@ export default function SignIn() {
         </div>
         </div>
         <div className="input-group mb-3">
-        <input type="password" className="form-control" placeholder="Password"/>
+        <input type="password" className="form-control" placeholder="Password" />
         <div className="input-group-append">
             <div className="input-group-text">
             <span className="fas fa-lock"></span>

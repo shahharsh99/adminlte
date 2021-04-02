@@ -2,12 +2,13 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Redirect,
 } from "react-router-dom";
-import Dashboard from "../Components/Dashboard/Dashboard";
+import Dashboard from "../Components/Common/Common";
 import Home from "../Components/Home";
 import Register from "../Components/SignUp/Register";
 import SignIn from "../Components/SignIn/SignIn";
-import Roles from "../Components/Roles";
+import Roles from "../Components/Room Database";
 import Employees from "../Components/Employees"
 import Rooms from "../Components/Room Database"
 import Products from "../Components/Product Database"
@@ -27,15 +28,16 @@ import ScheduleOrders from "../Components/Courier Management/Schedule Orders"
 import ScheduleOutput from "../Components/Courier Management/Schedule Output"
 import VisitorList from "../Components/Visitors"
 import AccessControl from "../Components/Access Control"
+import MainContent from "../Components/Dashboard"
 
 const Routes = () => {
     return (
     <Router>
         <Switch>
-            <Route exact name = "/" path="/" component={Home}/>
+            {/* <Route exact name = "/" path="/" component={Home}/> */}
             {/* <Route exact name = "/post-list" path="/post-list" component={PostList}/> */}
 
-            <Route exact name = "/dashboard" path="/dashboard" component={Dashboard}/>
+            <Route exact name = "/dashboard" path="/dashboard" component={MainContent}/>
             <Route exact name = "/access-control" path="/access-control" component={AccessControl}/>
             <Route exact name = "/visitor-list" path="/visitor-list" component={VisitorList}/>
             <Route exact name = "/schedule-output" path="/schedule-output" component={ScheduleOutput}/>
@@ -56,6 +58,8 @@ const Routes = () => {
             <Route exact name = "/roles" path="/roles" component={Roles}/>
             <Route exact name = "/signup" path="/signup" component={Register}/>
             <Route exact name = "/signin" path="/signin" component={SignIn}/>
+
+            <Route path="/" render={() => <Redirect to="/signin" />} />
         </Switch>
     </Router>)}
 
