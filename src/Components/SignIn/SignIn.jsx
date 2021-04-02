@@ -1,7 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 export default function SignIn() {
+    const history = useHistory();
+    const handleSubmit = () => {
+        history.push("/dashboard")
+    }
     return (
         <div>
             <div className="hold-transition login-page">
@@ -13,7 +17,7 @@ export default function SignIn() {
     <div className="card-body login-card-body">
     <p className="login-box-msg">Sign in to start your session</p>
 
-    <form action="../../index3.html" method="post">
+    <form onSubmit={handleSubmit}>
         <div className="input-group mb-3">
         <input type="email" className="form-control" placeholder="Email"/>
         <div className="input-group-append">
